@@ -1,0 +1,11 @@
+name: ParticleMenu
+version: ${project.version}
+main: com.jaaakee.particlemenu.ParticleMenu
+api-version: 1.13
+authors: [Jaaakee]
+description: A fun, lightweight, and EULA friendly plugin for your players!
+
+commands:
+  particlemenu:
+    description: Open the ParticleMenu GUI.
+    aliases: [pm, ptm]

@@ -1,0 +1,71 @@
+# General Configuration
+save-player-data: true
+
+# Particle Effects Configuration
+inventory-title: Particle Effects
+heart:
+  isEnabled: true
+  particleName: Heart
+  particleIcon: GOLDEN_APPLE
+  particleSlot: 10
+  noPermissionMessage: You have not unlocked this effect yet.
+lavadrip:
+  isEnabled: true
+  particleName: Lava Drip
+  particleIcon: LAVA_BUCKET
+  particleSlot: 11
+  noPermissionMessage: You have not unlocked this effect yet.
+waterdrip:
+  isEnabled: true
+  particleName: Water Drip
+  particleIcon: WATER_BUCKET
+  particleSlot: 12
+  noPermissionMessage: You have not unlocked this effect yet.
+happyvillager:
+  isEnabled: true
+  particleName: Happy Villager
+  particleIcon: EMERALD
+  particleSlot: 13
+  noPermissionMessage: You have not unlocked this effect yet.
+angryvillager:
+  isEnabled: true
+  particleName: Happy Villager
+  particleIcon: BLAZE_POWDER
+  particleSlot: 14
+  noPermissionMessage: You have not unlocked this effect yet.
+note:
+  isEnabled: true
+  particleName: Note
+  particleIcon: NOTE_BLOCK
+  particleSlot: 15
+  noPermissionMessage: You have not unlocked this effect yet.
+slime:
+  isEnabled: true
+  particleName: Slime
+  particleIcon: SLIME_BALL
+  particleSlot: 16
+  noPermissionMessage: You have not unlocked this effect yet.
+enchantment:
+  isEnabled: true
+  particleName: Enchantment
+  particleIcon: ENCHANTING_TABLE
+  particleSlot: 19
+  noPermissionMessage: You have not unlocked this effect yet.
+critical:
+  isEnabled: true
+  particleName: Critical
+  particleIcon: IRON_SWORD
+  particleSlot: 20
+  noPermissionMessage: You have not unlocked this effect yet.
+magic:
+  isEnabled: true
+  particleName: Magic
+  particleIcon: POTION
+  particleSlot: 21
+  noPermissionMessage: You have not unlocked this effect yet.
+flame:
+  isEnabled: true
+  particleName: Flame
+  particleIcon: FLINT_AND_STEEL
+  particleSlot: 22
+  noPermissionMessage: You have not unlocked this effect yet.
