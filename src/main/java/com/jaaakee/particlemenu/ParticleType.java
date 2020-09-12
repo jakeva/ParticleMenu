@@ -6,31 +6,31 @@ import org.bukkit.Particle;
 
 public enum ParticleType {
 
-    HEART(Particle.HEART, "heart.isEnabled", "heart.particleName", "heart.particleIcon", "heart.particleSlot", "particlemenu.activate.heart", "heart.noPermissionMessage"),
-    LAVA_DRIP(Particle.DRIP_LAVA, "lavadrip.isEnabled", "lavadrip.particleName", "lavadrip.particleIcon", "lavadrip.particleSlot", "particlemenu.activate.lavadrip", "lavadrip.noPermissionMessage"),
-    WATER_DRIP(Particle.DRIP_WATER, "waterdrip.isEnabled", "waterdrip.particleName", "waterdrip.particleIcon", "waterdrip.particleSlot", "particlemenu.activate.waterdrip", "waterdrip.noPermissionMessage"),
-    HAPPY_VILLAGER(Particle.VILLAGER_HAPPY, "happyvillager.isEnabled", "happyvillager.particleName", "happyvillager.particleIcon", "happyvillager.particleSlot", "particlemenu.activate.happyvillager", "happyvillager.noPermissionMessage"),
-    ANGRY_VILLAGER(Particle.VILLAGER_ANGRY, "angryvillager.isEnabled", "angryvillager.particleName", "angryvillager.particleIcon", "angryvillager.particleSlot", "particlemenu.activate.angryvillager", "angryvillager.noPermissionMessage"),
-    NOTE(Particle.NOTE, "note.isEnabled", "note.particleName", "note.particleIcon", "note.particleSlot", "particlemenu.activate.note", "note.noPermissionMessage"),
-    SLIME(Particle.SLIME, "slime.isEnabled", "slime.particleName", "slime.particleIcon", "slime.particleSlot", "particlemenu.activate.slime", "slime.noPermissionMessage"),
+    HEART(Particle.HEART, "heart.isEnabled", "heart.name", "heart.icon", "heart.slot", "particlemenu.activate.heart", "heart.noPermissionMessage"),
+    LAVA_DRIP(Particle.DRIP_LAVA, "lavadrip.isEnabled", "lavadrip.name", "lavadrip.icon", "lavadrip.slot", "particlemenu.activate.lavadrip", "lavadrip.noPermissionMessage"),
+    WATER_DRIP(Particle.DRIP_WATER, "waterdrip.isEnabled", "waterdrip.name", "waterdrip.icon", "waterdrip.slot", "particlemenu.activate.waterdrip", "waterdrip.noPermissionMessage"),
+    HAPPY_VILLAGER(Particle.VILLAGER_HAPPY, "happyvillager.isEnabled", "happyvillager.name", "happyvillager.icon", "happyvillager.slot", "particlemenu.activate.happyvillager", "happyvillager.noPermissionMessage"),
+    ANGRY_VILLAGER(Particle.VILLAGER_ANGRY, "angryvillager.isEnabled", "angryvillager.name", "angryvillager.icon", "angryvillager.slot", "particlemenu.activate.angryvillager", "angryvillager.noPermissionMessage"),
+    NOTE(Particle.NOTE, "note.isEnabled", "note.name", "note.icon", "note.slot", "particlemenu.activate.note", "note.noPermissionMessage"),
+    SLIME(Particle.SLIME, "slime.isEnabled", "slime.name", "slime.icon", "slime.slot", "particlemenu.activate.slime", "slime.noPermissionMessage"),
 
-    ENCHANTMENT(Particle.ENCHANTMENT_TABLE, "enchantment.isEnabled", "enchantment.particleName", "enchantment.particleIcon", "enchantment.particleSlot", "particlemenu.activate.enchantment", "enchantment.noPermissionMessage"),
-    CRITICAL(Particle.CRIT, "critical.isEnabled", "critical.particleName", "critical.particleIcon", "critical.particleSlot", "particlemenu.activate.critical", "critical.noPermissionMessage"),
-    MAGIC(Particle.SPELL_WITCH, "magic.isEnabled", "magic.particleName", "magic.particleIcon", "magic.particleSlot", "particlemenu.activate.magic", "magic.noPermissionMessage"),
-    FLAME(Particle.FLAME, "flame.isEnabled", "flame.particleName", "flame.particleIcon", "flame.particleSlot", "particlemenu.activate.flame", "flame.noPermissionMessage");
+    ENCHANTMENT(Particle.ENCHANTMENT_TABLE, "enchantment.isEnabled", "enchantment.name", "enchantment.icon", "enchantment.slot", "particlemenu.activate.enchantment", "enchantment.noPermissionMessage"),
+    CRITICAL(Particle.CRIT, "critical.isEnabled", "critical.name", "critical.icon", "critical.slot", "particlemenu.activate.critical", "critical.noPermissionMessage"),
+    MAGIC(Particle.SPELL_WITCH, "magic.isEnabled", "magic.name", "magic.icon", "magic.slot", "particlemenu.activate.magic", "magic.noPermissionMessage"),
+    FLAME(Particle.FLAME, "flame.isEnabled", "flame.name", "flame.icon", "flame.slot", "particlemenu.activate.flame", "flame.noPermissionMessage");
 
     public ConfigurationManager configurationManager = new ConfigurationManager();
 
     public Particle particleEffect;
-    public String isEnabledPath, particleNamePath, particleIconPath, particleSlotPath, noPermissionMessagePath, permissionNodePath;
+    public String isEnabledPath, namePath, iconPath, slotPath, noPermissionMessagePath, permissionNodePath;
 
-    ParticleType(Particle particleEffect, String isEnabledPath, String particleNamePath, String particleIconPath, String particleSlotPath, String permissionNodePath, String noPermissionMessagePath) {
+    ParticleType(Particle particleEffect, String isEnabledPath, String namePath, String iconPath, String slotPath, String permissionNodePath, String noPermissionMessagePath) {
         this.particleEffect = particleEffect;
 
         this.isEnabledPath = isEnabledPath;
-        this.particleNamePath = particleNamePath;
-        this.particleIconPath = particleIconPath;
-        this.particleSlotPath = particleSlotPath;
+        this.namePath = namePath;
+        this.iconPath = iconPath;
+        this.slotPath = slotPath;
         this.permissionNodePath = permissionNodePath;
 
         this.noPermissionMessagePath = noPermissionMessagePath;
@@ -45,15 +45,15 @@ public enum ParticleType {
     }
 
     public String getParticleName(ParticleMenu particleMenu) {
-        return configurationManager.getConfig("config", particleMenu).getString(particleNamePath);
+        return configurationManager.getConfig("config", particleMenu).getString(namePath);
     }
 
     public Material getParticleIcon(ParticleMenu particleMenu) {
-        return Material.valueOf(configurationManager.getConfig("config", particleMenu).getString(particleIconPath));
+        return Material.valueOf(configurationManager.getConfig("config", particleMenu).getString(iconPath));
     }
 
-    public int getSlot(ParticleMenu particleMenu) {
-        return configurationManager.getConfig("config", particleMenu).getInt(particleSlotPath);
+    public int getParticleSlot(ParticleMenu particleMenu) {
+        return configurationManager.getConfig("config", particleMenu).getInt(slotPath);
     }
 
     public String getPermissionNode() {

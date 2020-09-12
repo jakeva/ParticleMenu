@@ -1,71 +1,91 @@
 # General Configuration
 save-player-data: true
 
-# Particle Effects Configuration
+# GUI & Chat Configuration
 inventory-title: Particle Effects
+inventory-size: 54
+
+particle-selected-lore: SELECTED!
+effect-already-active: You already have this effect active.
 heart:
   isEnabled: true
-  particleName: Heart
-  particleIcon: GOLDEN_APPLE
-  particleSlot: 10
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Heart
+  icon: POPPY
+  slot: 10
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 lavadrip:
   isEnabled: true
-  particleName: Lava Drip
-  particleIcon: LAVA_BUCKET
-  particleSlot: 11
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Lava Drip
+  icon: LAVA_BUCKET
+  slot: 11
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 waterdrip:
   isEnabled: true
-  particleName: Water Drip
-  particleIcon: WATER_BUCKET
-  particleSlot: 12
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Water Drip
+  icon: WATER_BUCKET
+  slot: 12
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 happyvillager:
   isEnabled: true
-  particleName: Happy Villager
-  particleIcon: EMERALD
-  particleSlot: 13
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Happy Villager
+  icon: EMERALD
+  slot: 13
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 angryvillager:
   isEnabled: true
-  particleName: Happy Villager
-  particleIcon: BLAZE_POWDER
-  particleSlot: 14
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Happy Villager
+  icon: BLAZE_POWDER
+  slot: 14
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 note:
   isEnabled: true
-  particleName: Note
-  particleIcon: NOTE_BLOCK
-  particleSlot: 15
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Note
+  icon: NOTE_BLOCK
+  slot: 15
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 slime:
   isEnabled: true
-  particleName: Slime
-  particleIcon: SLIME_BALL
-  particleSlot: 16
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Slime
+  icon: SLIME_BALL
+  slot: 16
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 enchantment:
   isEnabled: true
-  particleName: Enchantment
-  particleIcon: ENCHANTING_TABLE
-  particleSlot: 19
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Enchantment
+  icon: ENCHANTING_TABLE
+  slot: 19
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 critical:
   isEnabled: true
-  particleName: Critical
-  particleIcon: IRON_SWORD
-  particleSlot: 20
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Critical
+  icon: IRON_SWORD
+  slot: 20
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 magic:
   isEnabled: true
-  particleName: Magic
-  particleIcon: POTION
-  particleSlot: 21
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Magic
+  icon: POTION
+  slot: 21
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
 flame:
   isEnabled: true
-  particleName: Flame
-  particleIcon: FLINT_AND_STEEL
-  particleSlot: 22
-  noPermissionMessage: You have not unlocked this effect yet.
+  name: Flame
+  icon: FLINT_AND_STEEL
+  slot: 22
+  no-permission-item-lore: You have not unlocked this effect yet.
+  no-permission-chat-message: You have not unlocked this effect yet.
+clear-particle:
+  name: Clear Particle Effect
+  icon: BARRIER
+  slot: 40
+  chat-message: You reset your particle effect.

@@ -29,7 +29,7 @@ public class ParticleHandler {
 
     public void createMenu(Player player) {
 
-        MenuAPI particlesMenu = new MenuAPI(54, configurationManager.getConfig("config", particleMenu).getString("inventory-title"));
+        MenuAPI particlesMenu = new MenuAPI(configurationManager.getConfig("config", particleMenu).getInt("inventory-size"), ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(configurationManager.getConfig("config", particleMenu).getString("inventory-title"))));
 
         for (ParticleType particleType : ParticleType.values()) {
             if (particleType.isEnabled(particleMenu)) {
@@ -39,14 +39,14 @@ public class ParticleHandler {
 
                     if (Objects.equals(fileConfiguration.getString(player.getUniqueId().toString()), particleType.getParticleEffect().toString())) {
                         /* Selected and have permission particle effect icons */
-                        particlesMenu.setItem(particleType.getSlot(particleMenu), new ItemBuilder(particleType.getParticleIcon(particleMenu)).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.GREEN + "SELECTED!").enchant(Enchantment.LUCK, 1).flags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_POTION_EFFECTS).build(),
+                        particlesMenu.setItem(particleType.getParticleSlot(particleMenu), new ItemBuilder(particleType.getParticleIcon(particleMenu)).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.GREEN + "SELECTED!").enchant(Enchantment.LUCK, 1).flags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_POTION_EFFECTS).build(),
                                 e -> {
                                     player.sendMessage(ChatColor.RED + "You already have this effect active.");
                                     player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1F, 1F);
                                 });
                     } else {
                         /* Unselected and have permission particle effect icons */
-                        particlesMenu.setItem(particleType.getSlot(particleMenu), new ItemBuilder(particleType.getParticleIcon(particleMenu)).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.YELLOW + "Click to Select!").flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_POTION_EFFECTS).build(),
+                        particlesMenu.setItem(particleType.getParticleSlot(particleMenu), new ItemBuilder(particleType.getParticleIcon(particleMenu)).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.YELLOW + "Click to Select!").flags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_POTION_EFFECTS).build(),
                                 e -> {
                                     try {
                                         setPlayerParticle(player, particleType.getParticleName(particleMenu), particleType.getParticleEffect(), true);
@@ -57,7 +57,7 @@ public class ParticleHandler {
                     }
                 } else {
                     /* Unselected and have permission particle effect icons */
-                    particlesMenu.setItem(particleType.getSlot(particleMenu), new ItemBuilder(Material.GRAY_DYE).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.RED + particleType.getNoPermissionMessage(particleMenu)).build(),
+                    particlesMenu.setItem(particleType.getParticleSlot(particleMenu), new ItemBuilder(Material.GRAY_DYE).name(ChatColor.AQUA + particleType.getParticleName(particleMenu) + " Particle Effect").lore(ChatColor.RED + particleType.getNoPermissionMessage(particleMenu)).build(),
                             e -> {
                                 player.sendMessage(ChatColor.RED + particleType.getNoPermissionMessage(particleMenu));
                                 player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1F, 1F);
@@ -72,7 +72,7 @@ public class ParticleHandler {
                 clearPlayerParticle(player);
 
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1F, 1F);
-                player.sendMessage(ChatColor.RED + "You reset your particle effect.");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(configurationManager.getConfig("config", particleMenu).getString("clear-particle.chat-message"))));
                 createMenu(player);
             }
         });
@@ -81,6 +81,7 @@ public class ParticleHandler {
     }
 
     public void setPlayerParticle(Player player, String particleName, Particle particle, boolean updateInventory) throws IOException {
+        /* Begin particle effect runnable */
         runParticles(player, particle);
 
         fileConfiguration = configurationManager.getConfig("config", particleMenu);
