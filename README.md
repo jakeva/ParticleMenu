@@ -1,2 +1,2 @@
 # ParticleMenu
-Cosmetic Particle Plugin using Paper, inspired by Hypixel's Particle Pack.
+Cosmetic Particle Plugin Java Minecraft Server Plugin
